@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Sraf.dev — Portfolio Stylesheet
+   Connected to index.html via <link rel="stylesheet" href="./styles.css">
+   ========================================================================== */
+
+:root {
+  --bg-obsidian: #09090b;
+  --bg-surface: #111114;
+  --bg-surface-elevated: #16161a;
+  --border-subtle: #27272a;
+  --border-hover: #3f3f46;
+  --accent-emerald: #34d399;
+  --accent-cyan: #22d3ee;
+  --accent-amber: #fbbf24;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+}
+
+/* Strict horizontal overflow prevention across all viewports */
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100%;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  overflow-x: clip;
+  max-width: 100%;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography helpers */
+.font-mono-code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.font-arabic {
+  font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+/* Grid & Flex child overflow guard */
+.min-w-guard {
+  min-width: 0;
+}
+
+.wrap-anywhere {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Subtle engineering grid background */
+.bg-tech-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(39, 39, 42, 0.28) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(39, 39, 42, 0.28) 1px, transparent 1px);
+}
+
+/* Glassmorphism sticky navbar */
+.navbar-glass {
+  background: rgba(9, 9, 11, 0.84);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Surface cards */
+.surface-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.surface-card:hover {
+  border-color: var(--border-hover);
+}
+
+.surface-card-interactive:hover {
+  border-color: rgba(52, 211, 153, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.65);
+}
+
+/* Terminal cursor blink */
+@keyframes blinkCursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: var(--accent-emerald);
+  vertical-align: middle;
+  margin-left: 4px;
+  animation: blinkCursor 1.05s infinite;
+}
+
+/* Filter pill active state */
+.filter-btn {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all 0.18s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background-color: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.5);
+  color: var(--accent-emerald);
+}
+
+/* Service chip toggle state in Scope Builder */
+.scope-chip {
+  background-color: #18181b;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all 0.18s ease;
+}
+
+.scope-chip:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.scope-chip.selected {
+  background-color: rgba(34, 211, 238, 0.12);
+  border-color: rgba(34, 211, 238, 0.55);
+  color: var(--accent-cyan);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
